@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - TechSavvy</title>
+  <style>
+    /* CSS untuk memusatkan halaman */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 400px; /* Lebar maksimal form register */
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Memberikan bayangan halus */
+      border-radius: 8px; /* Memberikan sudut yang melengkung */
+    }
+
+    header {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column; /* Mengatur input form vertikal */
+    }
+
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="assets/logo.png" alt="Logo TechSavvy" width="100px">
+      <h1>Daftar ke TechSavvy</h1>
+    </header>
+    <main>
+      <form action="/register" method="POST">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Daftar</button>
+      </form>
+      <p>Sudah punya akun? <a href="login.html">Login di sini</a></p>
+    </main>
+  </div>
+</body>
+</html>
