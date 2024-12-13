@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="assets/icon.png" />
+    <title>TechSavvy: Portal Informasi dan Edukasi Teknologi</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        /* Snackbar styling */
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #4a47a3;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transition: visibility 0.3s, bottom 0.5s ease-in-out;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            bottom: 50px;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #4a47a3;
+        }
+
+        .modal-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content button {
+            background-color: #4a47a3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-content button:hover {
+            background-color: #ffd700;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Logo TechSavvy" width="80px" />
+                </div>
+                <input type="checkbox" id="click" />
+                <label for="click" class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="login.html" class="btn_login">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="jumbotron">
+                <div class="jumbotron-text">
+                    <h1 id="headline">Selamat Datang di TechSavvy</h1>
+                    <p id="subtext">TechSavvy adalah portal terbaik untuk belajar dan mendapatkan berita terkini seputar teknologi.</p>
+                    <button type="button" class="btn_getStarted" id="showModal">Mulai Sekarang</button>
+                </div>
+                <div class="jumbotron-img">
+                    <img src="assets/jumbotron.png" alt="Jumbotron Image" width="200px" />
+                </div>
+            </div>
+        </main>
+        <footer>
+            <h4>&copy; TechSavvy 2024. All rights reserved.</h4>
+        </footer>
+    </div>
+
+    <!-- Snackbar -->
+    <div id="snackbar">Selamat datang di TechSavvy!</div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Selamat Datang di TechSavvy!</h2>
+            <p>TechSavvy adalah platform terbaik untuk belajar teknologi dan mendapatkan berita terkini.</p>
+            <button id="closeModal">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Manipulation
+        document.addEventListener("DOMContentLoaded", () => {
+            const headline = document.getElementById("headline");
+            const subtext = document.getElementById("subtext");
+            headline.textContent = "Jelajahi Dunia Teknologi di TechSavvy!";
+            subtext.textContent = "Temukan wawasan mendalam tentang teknologi terkini bersama kami.";
+        });
+
+        // Snackbar Functionality
+        function showSnackbar(message) {
+            const snackbar = document.getElementById("snackbar");
+            snackbar.textContent = message;
+            snackbar.className = "show";
+            setTimeout(() => {
+                snackbar.className = snackbar.className.replace("show", "");
+            }, 3000);
+        }
+
+        window.addEventListener("load", () => {
+            setTimeout(() => showSnackbar("Selamat datang di TechSavvy!"), 1000);
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById("modal");
+        const showModalButton = document.getElementById("showModal");
+        const closeModalButton = document.getElementById("closeModal");
+
+        showModalButton.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
+
+        closeModalButton.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
